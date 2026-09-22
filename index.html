@@ -390,78 +390,10 @@ reports and support data-driven decision making across operations.
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
         <div class="row">
+            <div id="project-container"></div>
 
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Schedule and Course Tracker Application" src="/assets/img/notetaker.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Schedules and Course Tracker<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An application where students can track class notes for different courses in one centralized hub.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> JavaScript, HTML, CSS, Python, Flask, MySQL</li>
-                  <li>Access shared course schedules and notes through an interactive web interface.</li>
-                  <li>Search for course-specific notes and schedules more efficiently, reducing manual search time by 55%.</li>
-                  <li>Store and organize schedules and notes securely for multiple users.</li>
-                  <li>Retrieve course information consistently through a backend database system.</li>
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/SammyajitDatta/Schedule-and-Course-Tracker"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <!-- Flask Project -->
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Pokemon Team Randomizer Application" src="/assets/img/pokemon.png"
-                style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Pokemon Team Randomizer<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  An app where users can generate semi-random teams and export them for battle on Pokemon Showdown.
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> JavaScript, HTML, CSS, Node.js, Express, MongoDB, Puppeteer</li>
-                  <li>Users can generate random Pokémon and competitive builds to create teams.</li>
-                  <li>Users can view, select, and export completed teams in Pokémon Showdown format.</li>
-                  <li>Cached competitive-build data reduces team randomization wait times by 80%.</li>
-
-
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/SammyajitDatta/Pokemon-Randomizer"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button id="load-more">Load More</button>
           <!-- ************* -->
         </div>
       </div>
@@ -718,6 +650,164 @@ reports and support data-driven decision making across operations.
       })
     })
   </script>
+  
+<!-- NEW SCRIPT for Activity 5-->
+<script>
+  const projects = [
+    {
+      title: "Schedules and Course Tracker",
+      description: "An application where students can track class notes for different courses in one centralized hub.",
+      image: "/assets/img/notetaker.png",
+      tools: "JavaScript, HTML, CSS, Python, Flask, MySQL",
+      accomplishments: [
+        "Access shared course schedules and notes through an interactive web interface.",
+        "Search for course-specific notes and schedules more efficiently, reducing manual search time by 55%.",
+        "Store and organize schedules and notes securely for multiple users.",
+        "Retrieve course information consistently through a backend database system."
+      ],
+      github: "https://github.com/SammyajitDatta/Schedule-and-Course-Tracker"
+    },
+
+    {
+      title: "Pokemon Team Randomizer",
+      description: "An app where users can generate semi-random teams and export them for battle on Pokemon Showdown.",
+      image: "/assets/img/pokemon.png",
+      tools: "JavaScript, HTML, CSS, Node.js, Express, MongoDB, Puppeteer",
+      accomplishments: [
+        "Users can generate random Pokémon and competitive builds to create teams.",
+        "Users can view, select, and export completed teams in Pokémon Showdown format.",
+        "Cached competitive-build data reduces team randomization wait times by 80%."
+      ],
+      github: "https://github.com/SammyajitDatta/Pokemon-Randomizer"
+    },
+
+    {
+      title: "Filler Project 3",
+      description: "Description for project 3.",
+      image: "/assets/img/project3.png",
+      tools: "Add tools here",
+      accomplishments: [
+        "Add accomplishment here.",
+        "Add another accomplishment here."
+      ],
+      github: "https://github.com/"
+    },
+
+    {
+      title: "Filler Project 4",
+      description: "Description for project 4.",
+      image: "/assets/img/project4.png",
+      tools: "Add tools here",
+      accomplishments: [
+        "Add accomplishment here.",
+        "Add another accomplishment here."
+      ],
+      github: "https://github.com/"
+    }
+  ];
+
+
+  // Keeps track of how many projects are currently displayed
+  let projectsDisplayed = 0;
+
+
+  // Creates the HTML for one project
+  function createProjectHTML(project) {
+
+    // Convert accomplishments array into <li> elements
+    let accomplishmentHTML = "";
+
+    project.accomplishments.forEach(function(accomplishment) {
+      accomplishmentHTML += `<li>${accomplishment}</li>`;
+    });
+
+
+    return `
+      <div class="col s12 m6 l4">
+        <div class="card medium">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img
+              alt="${project.title}"
+              src="${project.image}"
+              style="height: 100%; width: 100%"
+              class="activator"
+            />
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator teal-text hoverline">
+              ${project.title}
+              <i class="mdi-navigation-more-vert right"></i>
+            </span>
+
+            <p>
+              ${project.description}
+            </p>
+          </div>
+
+          <div class="card-reveal">
+
+            <span class="card-title grey-text">
+              <small>Accomplishments</small>
+              <i class="mdi-navigation-close right"></i>
+            </span>
+
+            <ul>
+              <li><b>Tools:</b> ${project.tools}</li>
+              ${accomplishmentHTML}
+            </ul>
+
+            <div class="card-action">
+              <a
+                aria-label="Visit the GitHub repo for ${project.title}"
+                href="${project.github}"
+                target="_blank"
+                data-position="top"
+                data-tooltip="View Source"
+                class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"
+              >
+                <i class="fa fa-github"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+
+  // Displays the next two projects
+  function loadProjects() {
+
+    const projectContainer = document.getElementById("project-container");
+
+    // Display at most 2 more projects
+    const end = Math.min(projectsDisplayed + 2, projects.length);
+
+    for (let i = projectsDisplayed; i < end; i++) {
+      projectContainer.innerHTML += createProjectHTML(projects[i]);
+    }
+
+    projectsDisplayed = end;
+
+    // Hide Load More when all projects are displayed
+    if (projectsDisplayed >= projects.length) {
+      document.getElementById("load-more").style.display = "none";
+    }
+  }
+
+
+  // Load the first 2 projects when the page opens
+  loadProjects();
+
+
+  // Load more when button is clicked
+  document.getElementById("load-more").addEventListener("click", loadProjects);
+
+</script>
+
 </body>
 
 </html>
