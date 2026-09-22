@@ -568,6 +568,156 @@ small {
   background-color: #00695c !important;
 } */
 
+
+
+/* ==================================================
+   ACTIVITY 6 - DARK MODE
+   ================================================== */
+
+
+/* 1. MAIN PAGE / GRID BACKGROUND */
+
+body.dark-mode main {
+  background: #121212;
+  color: #ffffff;
+}
+
+
+/* 2. DESKTOP NAVIGATION BAR */
+
+body.dark-mode nav,
+body.dark-mode ul.side-nav {
+  background-color: #181818;
+}
+
+
+/* 3. NAVIGATION LOGO/PROFILE AREA */
+
+body.dark-mode ul.side-nav.fixed li.logo {
+  background-color: #181818;
+  border-bottom-color: #333333;
+}
+
+
+/* 4. NAVIGATION TEXT */
+
+body.dark-mode ul.side-nav.fixed.table-of-contents li:not(.logo) a span {
+  color: #ffffff !important;
+}
+
+
+/* 5. NAVIGATION HOVER */
+
+body.dark-mode ul.table-of-contents li:not(.logo) a:hover,
+body.dark-mode ul.table-of-contents li:not(.logo) a.active {
+  background-color: #292929;
+}
+
+
+/* 6. INTRO SECTION */
+
+body.dark-mode #intro.section {
+  background: #4a304a;
+}
+
+
+/* 7. GENERAL SECTION TEXT */
+
+body.dark-mode section {
+  color: #ffffff;
+}
+
+
+/* 8. CARDS */
+
+body.dark-mode .card {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+
+/* 9. CARD CONTENT */
+
+body.dark-mode .card .card-content {
+  color: #ffffff;
+}
+
+
+/* 10. CARD REVEAL - PROJECTS */
+
+body.dark-mode .card .card-reveal {
+  background-color: #242424;
+  color: #ffffff;
+}
+
+
+/* 11. CARD BOTTOM/ACTION AREA */
+
+body.dark-mode .card .card-action {
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+
+
+/* 12. EXPERIENCE CARD DATE/TEXT */
+
+body.dark-mode .card-action span {
+  color: #dddddd;
+}
+
+
+/* 13. CARD DIVIDERS */
+
+body.dark-mode #experience .card-content .row {
+  border-bottom-color: #444444;
+}
+
+
+/* 14. EXPERIENCE JOB ROLE TEXT */
+
+body.dark-mode .brown-text {
+  color: #dddddd !important;
+}
+
+
+/* 15. GREY TEXT INSIDE CARDS */
+
+body.dark-mode .grey-text {
+  color: #dddddd !important;
+}
+
+
+/* 16. NORMAL PARAGRAPHS AND LISTS */
+
+body.dark-mode p,
+body.dark-mode li {
+  color: #ffffff;
+}
+
+
+/* 17. SKILLS DIVIDERS */
+
+body.dark-mode #skills h4 {
+  border-bottom-color: #444444;
+}
+
+
+/* 18. PROJECT CARD TEXT */
+
+body.dark-mode .card .card-content p {
+  color: #ffffff;
+}
+
+
+/* 19. LOAD MORE BUTTON */
+
+body.dark-mode #load-more {
+  background-color: #242424;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+
 @media (min-width: 1200px) {
   #experience .container {
     width: 860px;
